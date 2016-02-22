@@ -21,8 +21,7 @@ class Member{
             $this->dbh = new PDO(DSN, USER, PASSWORD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }
         catch(PDOException $e){
-            echo $e->getMessage();
-            exit;
+            throw $e;
         }
      }
 

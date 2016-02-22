@@ -3,8 +3,15 @@
 require "Member.php";
 
 // members テーブルのデータを表します。
-$member = new Member();
-
+try
+{
+    $member = new Member();
+}
+catch(PDOException $e)
+{
+    echo $e->getMessage();
+    exit;
+}
 // メンバーのデータをセットします。
 $member->set(array(
                     'name' => 'テスト名',
